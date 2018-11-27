@@ -1,0 +1,7 @@
+{
+  "Application":"FManager",
+  "Login":{
+    "Form":"Login Form"
+  },
+  "username": "Hello world"
+}

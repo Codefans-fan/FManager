@@ -1,0 +1,29 @@
+<ion-grid>
+    <ion-row justify-content-center>
+        <ion-col align-self-center [sizeSm]="6" [sizeLg]="5" [sizeXs]="12">
+            <div text-center>
+                <h4>{{ 'Login.Form' | translate }}</h4>
+            </div>
+
+            <div padding>
+                <ion-item>
+                    <ion-input type="text" placeholder='{{ "username" | translate }}'></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-input type="password" [placeholder]="'password'"></ion-input>
+                </ion-item>
+
+            </div>
+
+            <div padding>
+                <ion-button href="/login" expand="block">Login</ion-button>
+
+            </div>
+
+        </ion-col>
+
+    </ion-row>
+
+</ion-grid>
+

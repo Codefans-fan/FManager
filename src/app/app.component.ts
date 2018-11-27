@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +20,22 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
-    }
+    },
+      {
+          title:'login',
+           url:'/login' ,
+          icon:'login'
+      }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private translate: TranslateService,
   ) {
     this.initializeApp();
+    this.initTranslate();
   }
 
   initializeApp() {
@@ -36,4 +44,16 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+    initTranslate() {
+        // Set the default language for translation strings, and the current language.
+        this.translate.setDefaultLang('en');
+
+        if (this.translate.getBrowserLang() !== undefined) {
+            this.translate.use(this.translate.getBrowserLang());
+        } else {
+            this.translate.use('en');
+        }
+
+    }
 }
