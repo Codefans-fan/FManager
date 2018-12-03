@@ -1,7 +1,20 @@
 {
   "Application":"FManager",
-  "Login":{
-    "Form":"Login Form"
-  },
-  "username": "Hello world"
+  "login":{
+    "title":"Login",
+    "subtitle":"Hello, login with your name",
+    "form":"Login Form",
+    "username":"User Name",
+    "password":"Password",
+    "login":"Login",
+    "rememberme":"Remember me",
+    "forgetpassword":"Forget password ?",
+    "loginbutton":"Log in",
+    "error":{
+      "username":"User name is required",
+      "password":" Password is required!",
+      "passwordLength":"Password should contains from 6 to 20 characters"
+    }
+
+  }
 }

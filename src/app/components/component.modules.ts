@@ -8,7 +8,6 @@ import {IonicModule} from "@ionic/angular";
 import {RouterModule} from "@angular/router";
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @NgModule({
     imports: [
         CommonModule,

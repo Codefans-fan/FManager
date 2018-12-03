@@ -1,30 +1,108 @@
-$white-color: #fff;
-$height100: 100%;
+:host {
+  .body{
+    display: flex;
+    width: 100%;
+    flex: 1;
+    -ms-flex: 1 1 auto;
+    overflow: auto;
+    padding: 1.25rem;
+    position: relative;
 
-ion-grid {
-  width:100%;
-  height: $height100;
-  background: #dfdfdf;
-}
-
-ion-row {
-  height: $height100;
-}
-
-ion-col {
-  border: 1px solid #488aff;
-  background: $white-color;
-}
-
-ion-button {
-  font-weight: 300;
-}
-
-@media (min-width: 240px) and (max-width: 768px) {
-  ion-grid {
-    background: $white-color;
   }
-  ion-col {
-    border: none;
+  .login-container {
+    display: block;
+    width: 100%;
+    max-width: 35rem;
+    margin: auto;
+  }
+
+  .form-control-group{
+
+
+  }
+
+  .title {
+    margin-top: 0;
+    margin-bottom: .75rem;
+    text-align: center;
+  }
+
+  .sub-title {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  form {
+    width:100%;
+  }
+
+  .label {
+    display: block;
+    margin-bottom: .5rem;
+    color:#4b4b4b;
+  }
+
+  .input-rectangle{
+    border-radius: .375rem;
+  }
+  .input-full-width{
+    width:100%;
+  }
+
+  .input-md{
+    font-size: 1rem;
+    padding: .75rem 1.125rem;
+    background-color: #fff;
+    border: 2px solid #dadfe6;
+    color: #2a2a2a;
+    line-height: 1.15;
+  }
+
+  .form-control-group{
+    margin-bottom: 2rem;
+
+  }
+
+  .error-message{
+    color: red;
+  }
+
+  input{
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    -webkit-writing-mode: horizontal-tb !important;
+  }
+
+  .forgot-password{
+    float: right;
+  }
+  .login-button{
+    width: 100%;
+    background-color: #37bd6c;
+    color: #fff;
+    font-weight: 500;
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .375rem;
+    cursor: pointer;
+    border-color: transparent;
+  }
+  .another-action{
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .text-link{
+    color: #a4abb3;
+    font-weight: 600;
   }
 }

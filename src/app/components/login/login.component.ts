@@ -10,8 +10,28 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
+    redirectDelay: number = 0;
+    showMessages: any = {};
+    strategy: string = '';
+
+    errors: string[] = [];
+    messages: string[] = [];
+    user: any = {};
+    submitted: boolean = false;
+
+
+    rememberMe = false;
 
     ngOnInit(): void {
+    }
+
+
+    login(): void {
+        this.errors = [];
+        this.messages = [];
+        this.submitted = true;
+
+
     }
 
 
