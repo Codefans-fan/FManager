@@ -23,8 +23,13 @@ export class AppComponent {
     },
       {
           title:'login',
-           url:'/login' ,
+          url:'/auth/login' ,
           icon:'login'
+      },
+      {
+          title: 'register',
+          url:'/auth/register',
+          icon:''
       }
   ];
 

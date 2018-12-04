@@ -1,33 +1,90 @@
-<h1 id="title" class="title">
-    {{ 'login.title' | translate }}
-</h1>
-<p class="sub-title">Hello! Log in with your User.</p>
+<div class="body">
+    <div class="register-container">
+        <h1 id="title" class="title" >
+            {{ 'register.title' | translate }}
+        </h1>
+        <form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
 
-    <ion-row justify-content-center>
-        <ion-col align-self-center [sizeSm]="6" [sizeLg]="5" [sizeXs]="12">
-            <div text-center>
-                <h4>{{ 'Register.Form' | translate }}</h4>
+            <div class="form-control-group">
+                <label class="label" for="input-name">{{ "register.fullname" | translate }}</label>
+                <input class="input-rectangle input-full-width input-md"
+                       [(ngModel)]="user.fullName"
+                       #fullName="ngModel"
+                       id="input-name"
+                       name="fullName"
+                       placeholder="Full name"
+                       autofocus
+                       [attr.aria-invalid]="fullName.invalid && fullName.touched ? true : null">
+                <ng-container *ngIf="fullName.invalid && fullName.touched">
+                    <p class="error-message" *ngIf="fullName.errors?.required">
+                        {{ "register.error.fullnamerequired" | translate}}
+                    </p>
+                </ng-container>
             </div>
 
-            <div padding>
-                <ion-item>
-                    <ion-input type="text" placeholder='{{ "username" | translate }}'></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="password" placeholder="'password'"></ion-input>
-                </ion-item>
-
+            <div class="form-control-group">
+                <label class="label" for="input-username">{{ "register.username" | translate }}</label>
+                <input class="input-rectangle input-full-width input-md"
+                        [(ngModel)]="user.username"
+                       #username="ngModel"
+                       id="input-username"
+                       name="username"
+                       placeholder='{{ "register.username_placeholder"| translate }}'
+                       [required]="true"
+                       [attr.aria-invalid]="username.invalid && username.touched ? true : null">
+                <ng-container *ngIf="username.invalid && username.touched">
+                    <p class="error-message" *ngIf="username.errors?.required">
+                       {{ "register.error.usernamerequired" | translate}}
+                    </p>
+                </ng-container>
             </div>
 
-            <div padding>
-                <ion-button href="/login" expand="block">Login</ion-button>
-
+            <div class="form-control-group">
+                <label class="label" for="input-password">{{ "register.password" | translate}}</label>
+                <input class="input-rectangle input-full-width input-md"
+                       [(ngModel)]="user.password"
+                       #password="ngModel"
+                       type="password"
+                       id="input-password"
+                       name="password"
+                       placeholder='{{ "register.password_placeholder"}}'
+                       [required]="true"
+                       [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+                <ng-container *ngIf="password.invalid && password.touched">
+                    <p class="error-message" *ngIf="password.errors?.required">
+                        {{"register.error.passwordrequired" | translate}}
+                    </p>
+                </ng-container>
             </div>
 
-        </ion-col>
+            <div class="form-control-group">
+                <label class="label" for="input-re-password">{{ "register.repeatpassword" | translate}}</label>
+                <input class="input-rectangle input-full-width input-md"
+                       [(ngModel)]="user.confirmPassword"
+                       #rePass="ngModel"
+                       type="password"
+                       id="input-re-password"
+                       name="rePass"
+                       placeholder="Confirm Password"
+                       [required]="true"
+                       [attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null">
+                <ng-container *ngIf="rePass.invalid && rePass.touched">
+                    <p class="error-message" *ngIf="rePass.errors?.required">
+                        {{"register.error.repeatpasswordrequired" | translate}}
+                    </p>
+                    <p class="error-message" *ngIf="password.value != rePass.value && !rePass.errors?.required">
+                        {{ "register.error.passwordnotmatch" | translate }}
+                    </p>
+                </ng-container>
+            </div>
 
-    </ion-row>
 
-</ion-grid>
 
+            <button class="register-button">{{ 'register.button' | translate}}</button>
+        </form>
+
+        <section class="another-action" aria-label="Sign in">
+            {{"register.haveaccount" | translate }} <a class="text-link" routerLink="../login">{{ "register.login" | translate }}</a>
+        </section>
+    </div>
+</div>

@@ -16,5 +16,24 @@
       "passwordLength":"Password should contains from 6 to 20 characters"
     }
 
+  },
+  "register":{
+    "title":"Register",
+    "fullname":"Full name:",
+    "username":"User name",
+    "username_placeholder":"User name",
+    "password":"Password:",
+    "password_placeholder":"Password",
+    "repeatpassword":"Repeat password:",
+    "button":"Register",
+    "haveaccount":"Already have an account?",
+    "login":"Log in",
+    "error":{
+      "fullnamerequired":"Full name is required",
+      "usernamerequired":"User name is required",
+      "passwordrequired":"Password is required",
+      "repeatpasswordrequired":"Password confirmation is required!",
+      "passwordnotmatch":"Password does not match the confirm password."
+    }
   }
 }

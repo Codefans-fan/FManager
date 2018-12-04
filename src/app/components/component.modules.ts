@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
 
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {IonicModule} from "@ionic/angular";
 import {RouterModule} from "@angular/router";
-import { TranslateModule } from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
+import {RegisterComponent} from './register/register.component';
 
 @NgModule({
     imports: [
@@ -16,15 +17,19 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule.forChild(),
         RouterModule.forChild([
             {
-                path: '',
+                path: 'login',
                 component: LoginComponent
+            },
+            {
+                path:'register',
+                component:RegisterComponent
             }
         ])
     ],
-    declarations: [LoginComponent]
+    declarations: [LoginComponent,RegisterComponent]
 
 })
 
-export class ComponentModules{
+export class ComponentModules {
 
 }
