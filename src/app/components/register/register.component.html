@@ -47,7 +47,7 @@
                        type="password"
                        id="input-password"
                        name="password"
-                       placeholder='{{ "register.password_placeholder"}}'
+                       placeholder='{{ "register.password_placeholder" | translate }}'
                        [required]="true"
                        [attr.aria-invalid]="password.invalid && password.touched ? true : null">
                 <ng-container *ngIf="password.invalid && password.touched">
@@ -84,7 +84,7 @@
         </form>
 
         <section class="another-action" aria-label="Sign in">
-            {{"register.haveaccount" | translate }} <a class="text-link" routerLink="../login">{{ "register.login" | translate }}</a>
+            {{"register.haveaccount" | translate }} <a class="text-link" routerLink="/auth/login" routerLinkActive="true">{{ "register.login" | translate }}</a>
         </section>
     </div>
 </div>

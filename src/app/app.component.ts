@@ -61,4 +61,8 @@ export class AppComponent {
         }
 
     }
+
+    authenticate():boolean {
+      return false;
+    }
 }

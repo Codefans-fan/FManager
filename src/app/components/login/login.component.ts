@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {AuthenticationService} from "../service/authentication.service";
+import {first} from "rxjs/operators";
 
 @Component(
     {
@@ -10,28 +12,22 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-    redirectDelay: number = 0;
-    showMessages: any = {};
-    strategy: string = '';
-
-    errors: string[] = [];
-    messages: string[] = [];
     user: any = {};
-    submitted: boolean = false;
-
-
     rememberMe = false;
+    loading:boolean = false;
+    constructor(private authenticationService:AuthenticationService){}
 
     ngOnInit(): void {
     }
 
-
     login(): void {
-        this.errors = [];
-        this.messages = [];
-        this.submitted = true;
-
-
+        this.loading = true;
+        this.authenticationService.login(this.user.username, this.user.password).pipe(first()).subscribe(data => {
+            console.log(data);
+        }, error => {
+            console.error(error);
+        });
+        this.loading = false;
     }
 
 

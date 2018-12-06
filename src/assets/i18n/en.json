@@ -10,6 +10,8 @@
     "rememberme":"Remember me",
     "forgetpassword":"Forget password ?",
     "loginbutton":"Log in",
+    "username_placeholder":"User name",
+    "password_placeholder":"Password",
     "error":{
       "username":"User name is required",
       "password":" Password is required!",

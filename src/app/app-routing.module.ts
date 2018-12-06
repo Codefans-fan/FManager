@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-
 const routes: Routes = [
     {
         path: '',
@@ -17,7 +16,7 @@ const routes: Routes = [
     },
     {
         path: 'auth',
-        loadChildren: './components/component.modules#ComponentModules'
+        loadChildren:'./components/component.modules#ComponentModules'
     }
 ];
 

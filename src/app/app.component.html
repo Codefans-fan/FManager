@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane class="ma">
-    <ion-menu style="max-width: 80px;">
+  <ion-split-pane class="ma" >
+    <ion-menu style="max-width: 80px;" *ngIf="authenticate()">
       <ion-header>
         <ion-toolbar>
           <ion-title>{{ 'Application' | translate }}</ion-title>
