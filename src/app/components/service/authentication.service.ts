@@ -15,7 +15,7 @@ export class AuthenticationService  {
 
     login(username:string, password:string){
         return this.http.post(`${AppSettiong.apiUrl}/user/login`, {email:username, password:password}).pipe(map(res =>{
-            if(res ){
+            if(res){
                const jsonString = JSON.stringify(res);
                const json = JSON.parse(jsonString);
                 if(json.token){

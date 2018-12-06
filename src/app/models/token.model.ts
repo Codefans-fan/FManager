@@ -6,15 +6,15 @@ import {decodeJwtPayload} from "../service/token.service";
 
 export class AuthToken {
 
-    username:string = '';
+    username: string = '';
 
-    exptime:number = -1;
+    exptime: number = -1;
 
     isValid(): boolean {
-        if(this.username !== '' && this.exptime < 0 ){
+        if (this.username !== '' && this.exptime > 0) {
             const date = new Date(0);
             date.setUTCSeconds(this.exptime);
-            if(new Date() < date){
+            if (new Date() < date) {
                 return true
             }
         }
@@ -22,15 +22,16 @@ export class AuthToken {
 
     }
 
-    constructor(tokenString : string) {
+    constructor(tokenString: string) {
+        if (tokenString) {
+            const jsonStr = decodeJwtPayload(tokenString);
+            if (jsonStr && jsonStr.hasOwnProperty('exp')) {
+                this.exptime = jsonStr.exp;
+            }
 
-       const jsonStr =  decodeJwtPayload(tokenString);
-       if(jsonStr && jsonStr.hasOwnProperty('exp')){
-           this.exptime = jsonStr.exp;
-       }
-
-        if(jsonStr && jsonStr.hasOwnProperty('username')){
-            this.username = jsonStr.username;
+            if (jsonStr && jsonStr.hasOwnProperty('username')) {
+                this.username = jsonStr.username;
+            }
         }
     }
 }
