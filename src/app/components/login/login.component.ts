@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../service/authentication.service";
 import {first} from "rxjs/operators";
 import { Router } from '@angular/router';
+import {LoadingController} from "@ionic/angular";
 @Component(
     {
         templateUrl: './login.component.html',
@@ -14,20 +15,22 @@ export class LoginComponent implements OnInit {
 
     user: any = {};
     rememberMe = false;
-    loading:boolean = false;
-    constructor(private authenticationService:AuthenticationService,private router: Router,){}
+    constructor(private authenticationService:AuthenticationService,private router: Router,private loadingController:LoadingController){}
 
     ngOnInit(): void {
     }
 
-    login(): void {
-        this.loading = true;
+    async login() {
+        const loader = await this.loadingController.create({
+            duration: 3000
+        });
+        await loader.present();
         this.authenticationService.login(this.user.username, this.user.password).pipe(first()).subscribe(data => {
             this.router.navigate(['/home'])
         }, error => {
+            loader.dismiss();
             console.error(error);
         });
-        this.loading = false;
     }
 
 
