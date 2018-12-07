@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import { Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -10,33 +10,20 @@ import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-root',
-    templateUrl: 'app.component.html'
+    templateUrl: 'app.component.html',
+    styles:[`
+        .split-pane-visible >.split-pane-side {
+            flex-grow: 2;
+        }
+        .split-pane-visible >.split-pane-main {
+            flex-grow: 72;
+        }
+    `]
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
     isAuth:boolean = false;
     currentUserSubscription: Subscription;
-    public appPages = [
-        {
-            title: 'Home',
-            url: '/home',
-            icon: 'home'
-        },
-        {
-            title: 'List',
-            url: '/list',
-            icon: 'list'
-        },
-        {
-            title: 'login',
-            url: '/auth/login',
-            icon: 'login'
-        },
-        {
-            title: 'register',
-            url: '/auth/register',
-            icon: ''
-        }
-    ];
+    public appPages = [];
 
     constructor(
         private platform: Platform,
@@ -81,4 +68,40 @@ export class AppComponent implements OnDestroy {
     ngOnDestroy(): void {
         this.currentUserSubscription.unsubscribe();
     }
+
+    ngOnInit(): void {
+        this.initMenuPage();
+    }
+
+    private initMenuPage():void{
+        this.translate.get(['menu.titles.home','menu.titles.profile']).subscribe(res =>{
+
+            this.appPages = [{
+                    title: res['menu.titles.home'],
+                    url: '/home',
+                    icon: 'home'
+                },
+                {
+                    title: res['menu.titles.profile'],
+                    url: '/list',
+                    icon: 'contact'
+                },
+
+                {
+                    title: 'login',
+                    url: '/auth/login',
+                    icon: 'login'
+                },
+                {
+                    title: 'register',
+                    url: '/auth/register',
+                    icon: ''
+                }];
+
+        });
+
+
+    }
+
+
 }

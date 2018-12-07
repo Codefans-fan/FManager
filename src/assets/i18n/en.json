@@ -42,8 +42,13 @@
     "register":{
       "100":"Email Exist in Server."
     }
+  },
+  "menu":{
+    "titles":{
+      "home":"Home",
+      "profile":"Profile"
+    }
 
   }
-
 
 }
