@@ -22,10 +22,9 @@ export class TokenInterceptor implements HttpInterceptor {
             }
         });
 
-        if (req.url.indexOf('/user/login') === -1) {
+        if (req.url.indexOf('/user/login') === -1 && req.url.indexOf('/user/register') === -1) {
             req = (req as HttpRequest<any>).clone({
                 setHeaders: {
-                    'Content-Type': 'application/json',
                     Authorization: this.auth.getToken() ? this.auth.getToken() : ''
                 }
             });

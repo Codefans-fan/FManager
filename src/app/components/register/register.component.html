@@ -1,4 +1,4 @@
-<div class="body">
+<ion-content class="body" padding>
     <div class="register-container">
         <h1 id="title" class="title" >
             {{ 'register.title' | translate }}
@@ -80,11 +80,11 @@
 
 
 
-            <button class="register-button">{{ 'register.button' | translate}}</button>
+            <button class="register-button" [disabled]="!form.valid">{{ 'register.button' | translate}}</button>
         </form>
 
         <section class="another-action" aria-label="Sign in">
             {{"register.haveaccount" | translate }} <a class="text-link" routerLink="/auth/login" routerLinkActive="true">{{ "register.login" | translate }}</a>
         </section>
     </div>
-</div>
+</ion-content>

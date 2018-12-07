@@ -25,4 +25,9 @@ export class AuthenticationService  {
         }));
     }
 
+    register(username:string,password:string,repassword:string,fullname:string){
+        return this.http.post(`${AppSettiong.apiUrl}/user/register`, {email:username, password:password, comfirmPassword:repassword,userName:fullname});
+    }
+
+
 }

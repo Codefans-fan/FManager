@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         });
         await loader.present();
         this.authenticationService.login(this.user.username, this.user.password).pipe(first()).subscribe(data => {
+            loader.dismiss();
             this.router.navigate(['/home'])
         }, error => {
             loader.dismiss();

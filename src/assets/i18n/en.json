@@ -37,5 +37,13 @@
       "repeatpasswordrequired":"Password confirmation is required!",
       "passwordnotmatch":"Password does not match the confirm password."
     }
+  },
+  "errors":{
+    "register":{
+      "100":"Email Exist in Server."
+    }
+
   }
+
+
 }
