@@ -9,6 +9,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {RegisterComponent} from './register/register.component';
 import { RouterModule } from '@angular/router';
 import {AuthenticationService} from "./service/authentication.service";
+import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
     imports: [
@@ -23,11 +24,15 @@ import {AuthenticationService} from "./service/authentication.service";
             {
                 path:'register',
                 component:RegisterComponent
+            },
+            {
+                path:'profile',
+                component:ProfileComponent
             }
         ]),
         TranslateModule.forChild()
     ],
-    declarations: [LoginComponent,RegisterComponent],
+    declarations: [LoginComponent,RegisterComponent,ProfileComponent],
     providers:[
         AuthenticationService
     ]
