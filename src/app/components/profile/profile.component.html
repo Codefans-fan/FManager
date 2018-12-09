@@ -20,9 +20,30 @@
            </ion-card-subtitle>
        </ion-card-header>
 
-       <ion-card-content>
-           xxx
-           xxx
+       <ion-card-content class="profile-container">
+           <ion-grid>
+               <ion-row>
+                   <ion-col size="3" text-end align-self-center>
+                       <div>{{"profile.rolelabel"| translate}} </div>
+                   </ion-col>
+                   <ion-col size="8" align-self-center >
+                       <ion-label *ngIf="!isEdit">
+                         <span *ngFor="let role of userRoles">
+                             {{role.roleName}},
+                         </span>
+                       </ion-label>
+                       <ion-select *ngIf="isEdit"  multiple="true"  interface="popover"  placeholder="{{'profile.roleinput' | translate }}"  cancelText="{{'profile.cancelText' | translate }}" okText="{{'profile.okText'| translate}}"
+                       >
+                               <ion-select-option value="{{option.id}}"  *ngFor="let option of roleOptions" >{{option.roleName}}</ion-select-option>
+                       </ion-select>
+                   </ion-col>
+                   <ion-col size="1"  align-self-center>
+                       <ion-button  size="small" (click)="isEdit = !isEdit">
+                           <ion-icon name="create"></ion-icon>
+                       </ion-button>
+                   </ion-col>
+               </ion-row>
+           </ion-grid>
        </ion-card-content>
 
    </ion-card>

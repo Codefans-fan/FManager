@@ -83,7 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 },
                 {
                     title: res['menu.titles.profile'],
-                    url: '/list',
+                    url: '/auth/profile',
                     icon: 'contact'
                 },
 

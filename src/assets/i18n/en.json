@@ -49,6 +49,13 @@
       "profile":"Profile"
     }
 
+  },
+  "profile":{
+    "title":"Profile",
+    "rolelabel":"Role:",
+    "roleinput":"Role",
+    "cancelText":"Cancel",
+    "okText":"OK"
   }
 
 }
