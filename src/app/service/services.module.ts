@@ -6,10 +6,12 @@
 
 import {NgModule} from "@angular/core";
 import {AuthService} from "./auth.service";
+import {AuthGuardService} from "./authguard.service";
 
 @NgModule({
     providers:[
-        AuthService
+        AuthService,
+        AuthGuardService
     ]
 })
 

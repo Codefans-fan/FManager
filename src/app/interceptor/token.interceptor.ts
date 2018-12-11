@@ -2,16 +2,17 @@
  * create by fky
  * create on 12/5/2018
  */
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from "@angular/common/http";
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HttpUserEvent} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
 import {AuthService} from "../service/auth.service";
 import {tap} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-    constructor(public auth: AuthService) {
+    constructor(private auth: AuthService,private router:Router) {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -22,7 +23,16 @@ export class TokenInterceptor implements HttpInterceptor {
             }
         });
 
+        if(req.url.indexOf('/assets/i18n') > 0){
+            return next.handle(req);
+        }
+
+
         if (req.url.indexOf('/user/login') === -1 && req.url.indexOf('/user/register') === -1) {
+            if(!this.auth.isAuthenticated()){
+                   this.router.navigate(['/auth/login']);
+                   return throwError({"code":102, "message":"authentication error"});
+            }
             req = (req as HttpRequest<any>).clone({
                 setHeaders: {
                     Authorization: this.auth.getToken() ? this.auth.getToken() : ''

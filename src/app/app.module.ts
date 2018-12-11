@@ -16,6 +16,8 @@ import {ComponentModules} from './components/component.modules'
 import {TokenInterceptor} from "./interceptor/token.interceptor";
 import {ServicesModule} from "./service/services.module";
 
+
+
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],

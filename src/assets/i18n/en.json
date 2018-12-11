@@ -46,7 +46,8 @@
   "menu":{
     "titles":{
       "home":"Home",
-      "profile":"Profile"
+      "profile":"Profile",
+      "article":"Article"
     }
 
   },
@@ -56,6 +57,10 @@
     "roleinput":"Role",
     "cancelText":"Cancel",
     "okText":"OK"
+  },
+  "article":{
+    "title":"Article",
+    "typeManage":"Article Type Manager"
   }
 
 }

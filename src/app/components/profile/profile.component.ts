@@ -2,7 +2,7 @@
  * create by fky
  * create on 12/8/2018
  */
-import {Component, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../service/user.service";
 import {first} from "rxjs/operators";
@@ -16,7 +16,7 @@ import {UserModel} from "../../models/user/user.model";
 })
 
 
-export  class ProfileComponent implements OnInit{
+export  class ProfileComponent implements OnInit, OnDestroy{
 
     username:string = '';
     isEdit:boolean = false;
@@ -33,7 +33,6 @@ export  class ProfileComponent implements OnInit{
     ngOnInit(): void {
         this.userService.getUserDetail().pipe(first()).subscribe((res:UserModel) => {
             this.userRoles = res.userRoles;
-            console.log(res);
             this.userService.getRoles().pipe(first()).subscribe((res:Array<UserRoleModel>) =>{
                 this.roleOptions = res;
             });
@@ -41,6 +40,10 @@ export  class ProfileComponent implements OnInit{
             console.error(err);
         });
 
+    }
+
+    ngOnDestroy(): void {
+        console.log('destroyed')
     }
 
 

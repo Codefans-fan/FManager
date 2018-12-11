@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import {AuthenticationService} from "./service/authentication.service";
 import {ProfileComponent} from './profile/profile.component';
 import {UserService} from "./service/user.service";
+import {AuthGuardService} from "../service/authguard.service";
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import {UserService} from "./service/user.service";
             },
             {
                 path:'profile',
+                canActivate:[AuthGuardService],
                 component:ProfileComponent
             }
         ]),

@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.initializeApp();
         this.initTranslate();
         this.currentUserSubscription = this.authService.currentUser.subscribe( res => {
-            if(res){
+            if(res && this.authService.isAuthenticated()){
                 console.log(res);
                 this.isAuth = true;
             }
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     private initMenuPage():void{
-        this.translate.get(['menu.titles.home','menu.titles.profile']).subscribe(res =>{
+        this.translate.get(['menu.titles.home','menu.titles.profile','menu.titles.article']).subscribe(res =>{
 
             this.appPages = [{
                     title: res['menu.titles.home'],
@@ -82,11 +82,15 @@ export class AppComponent implements OnInit, OnDestroy {
                     icon: 'home'
                 },
                 {
+                    title: res['menu.titles.article'],
+                    url: '/article',
+                    icon: 'construct'
+                },
+                {
                     title: res['menu.titles.profile'],
                     url: '/auth/profile',
                     icon: 'contact'
                 },
-
                 {
                     title: 'login',
                     url: '/auth/login',
