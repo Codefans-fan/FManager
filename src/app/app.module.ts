@@ -15,7 +15,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {ComponentModules} from './components/component.modules'
 import {TokenInterceptor} from "./interceptor/token.interceptor";
 import {ServicesModule} from "./service/services.module";
-
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import {ServicesModule} from "./service/services.module";
         IonicModule.forRoot(),
         ComponentModules,
         AppRoutingModule,
-        ServicesModule
+        ServicesModule,
+
     ],
     providers: [
         StatusBar,

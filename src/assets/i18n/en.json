@@ -60,7 +60,14 @@
   },
   "article":{
     "title":"Article",
-    "typeManage":"Article Type Manager"
+    "typeManage":"Article Type Manage",
+    "articletype":{
+      "tablecolumn":{
+        "id":"ID",
+        "typeName":"Name",
+        "description":"Description"
+      }
+    }
   }
 
 }

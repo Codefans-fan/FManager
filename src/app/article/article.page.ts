@@ -3,6 +3,9 @@
  * create on 12/10/2018
  */
 import {Component} from "@angular/core";
+import {Nav, NavController} from "@ionic/angular";
+import {TypeManageComponent} from "./type/type.manage.component";
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -13,8 +16,15 @@ import {Component} from "@angular/core";
 
 export class ArticlePage {
 
-    onItemClick(){
-        alert("xxxx");
+    constructor(private navController: NavController){}
+
+
+    onItemClick(type:string){
+        console.log(type);
+        if('type_manage' === type){
+           this.navController.navigateForward('/article/manage');
+        }
+
     }
 
 }

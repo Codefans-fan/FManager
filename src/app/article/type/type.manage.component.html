@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{'article.typeManage' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ngx-datatable class="bootstrap" [rows]="rows" [columnMode]="'force'" [rowHeight]="50" [sortType]="'multi'" [reorderable]="false">
+        <ngx-datatable-column name="{{'article.articletype.tablecolumn.id'|translate}}"  prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{'article.articletype.tablecolumn.typeName'|translate}}"  prop="typeName">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span *ngIf="!isEditModel(rowIndex)">
+              {{value}}
+            </span>
+                <input
+                      autofocus
+                        (blur)="updateValue($event,rowIndex,row)"
+                        *ngIf="isEditModel(rowIndex)"
+                        type="text"
+                        [value]="value"
+                />
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="{{'article.articletype.tablecolumn.description'|translate}}"  prop="description">
+        </ngx-datatable-column>
+        <ngx-datatable-column contenteditable="false">
+            <ng-template let-row="row" let-rowIndex="rowIndex"  ngx-datatable-cell-template>
+                <ion-button size="small" color="light" (click)="rowedit(rowIndex,row)" *ngIf="!isEditModel(rowIndex)">
+                    <ion-icon name="create"></ion-icon>
+                </ion-button>
+                <ion-button size="small" color="light" *ngIf="!isEditModel(rowIndex)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-button>
+                <ion-button size="small" color="light" *ngIf="!isEditModel(rowIndex)">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+
+                <ion-button size="small" color="light" (click)="confirmModifiy(rowIndex,row)" *ngIf="isEditModel(rowIndex)">
+                    <ion-icon name="checkmark"></ion-icon>
+                </ion-button>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+
+
+</ion-content>
