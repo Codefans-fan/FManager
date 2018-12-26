@@ -18,7 +18,7 @@
             </span>
                 <input
                       autofocus
-                        (blur)="updateValue($event,rowIndex,row)"
+                        (blur)="updateValue($event,rowIndex,'typeName')"
                         *ngIf="isEditModel(rowIndex)"
                         type="text"
                         [value]="value"
@@ -26,6 +26,18 @@
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="{{'article.articletype.tablecolumn.description'|translate}}"  prop="description">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+            <span *ngIf="!isEditModel(rowIndex)">
+              {{value}}
+            </span>
+                <input
+                        autofocus
+                        (blur)="updateValue($event,rowIndex,'description')"
+                        *ngIf="isEditModel(rowIndex)"
+                        type="text"
+                        [value]="value"
+                />
+            </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column contenteditable="false">
             <ng-template let-row="row" let-rowIndex="rowIndex"  ngx-datatable-cell-template>

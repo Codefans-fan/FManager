@@ -4,9 +4,9 @@
  */
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {AppSettiong} from "../../appsetting";
 import {map} from "rxjs/operators";
 import {UserRoleModel} from "../../models/user/userrole.model";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export  class UserService {
@@ -15,11 +15,11 @@ export  class UserService {
 
 
     getUserDetail (){
-       return this.http.get(`${AppSettiong.apiUrl}/user/userdetail`);
+       return this.http.get(`${environment.apiUrl}/user/userdetail`);
     }
 
     getRoles(){
-        return this.http.get(`${AppSettiong.apiUrl}/user/roles`).pipe(map( (res: Array<UserRoleModel> ) =>{
+        return this.http.get(`${environment.apiUrl}/user/roles`).pipe(map( (res: Array<UserRoleModel> ) =>{
              return res;
         }));
 

@@ -67,6 +67,10 @@
         "typeName":"Name",
         "description":"Description"
       }
+    },
+    "message":{
+      "success":"Success",
+      "failed":"Failed"
     }
   }
 
