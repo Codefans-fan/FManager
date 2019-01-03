@@ -8,6 +8,7 @@ import {ArticleTypeModel} from "./type/article.type.model";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
+import {ArticleModel} from "./article.model";
 
 @Injectable()
 export  class ArticleService {
@@ -26,6 +27,14 @@ export  class ArticleService {
         return this.http.put(`${environment.apiUrl}/article/updatetypes`,list).pipe(map((res:Array<ArticleTypeModel>)=>{
             return res;
         }));
+    }
+
+
+    updateArticle(article:ArticleModel):Observable<ArticleModel>{
+        return this.http.post(`${environment.apiUrl}/article/updatearticle`,article).pipe(map((res:ArticleModel)=>{
+           return res;
+        }));
+
     }
 
 }

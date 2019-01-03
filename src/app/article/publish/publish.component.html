@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ 'article.publish' | translate }}
+        </ion-title>
+        <ion-buttons slot="primary">
+            <ion-button fill="solid" color="secondary" (click)="saveArticle()">
+                <ion-icon slot="start" name="save"></ion-icon>
+                {{'article.button.save'| translate}}
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-title >
+            <ion-input  color="primary" style="text-align: center;" type="text" [(value)]="article.title"  [(ngModel)]="article.title" clearInput  placeholder="{{'article.template.name'| translate}}"></ion-input>
+        </ion-card-title>
+        <ion-card-content>
+            <ckeditor [editor]="Editor" [(ngModel)]="article.context"></ckeditor>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

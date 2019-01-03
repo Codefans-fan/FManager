@@ -23,8 +23,13 @@ export class ArticlePage {
         console.log(type);
         if('type_manage' === type){
            this.navController.navigateForward('/article/manage');
+           return;
         }
 
+        if('publish_article' === type){
+            this.navController.navigateForward('/article/publish');
+            return;
+        }
     }
 
 }

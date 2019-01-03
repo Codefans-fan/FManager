@@ -17,4 +17,11 @@
             <ion-icon name="arrow-forward" slot="end"></ion-icon>
         </ion-item>
     </ion-list>
+    <ion-list>
+        <ion-item ion-button (click)="onItemClick('publish_article')" style="cursor: pointer;">
+            <ion-icon name="document" slot="start"></ion-icon>
+            <ion-label>{{'article.publish' | translate}}</ion-label>
+            <ion-icon name="arrow-forward" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list>
 </ion-content>

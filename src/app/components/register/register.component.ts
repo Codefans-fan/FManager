@@ -35,13 +35,14 @@ export  class RegisterComponent implements OnInit{
             duration: 3000
         });
         await loader.present();
-        this.authenticationService.register(this.user.username,this.user.password,this.user.confirmPassword,this.user.fullName).pipe(first()).subscribe(res => {
+        this.authenticationService.register(this.user.email,this.user.password,this.user.confirmPassword,this.user.fullName).pipe(first()).subscribe(res => {
             loader.dismiss();
             let jsonString = JSON.stringify(res);
             let json = JSON.parse(jsonString);
             if (json.code === 200) {
                 //register succes
                 this.router.navigate(['/auth/login']);
+                return;
             }
 
             this.tranlateService.get(`errors.register.${json.code}`).subscribe(async translatedStr => {

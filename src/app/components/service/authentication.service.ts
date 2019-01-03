@@ -13,8 +13,8 @@ export class AuthenticationService  {
 
     constructor(private http: HttpClient, private authService: AuthService){}
 
-    login(username:string, password:string){
-        return this.http.post(`${environment.apiUrl}/user/login`, {email:username, password:password}).pipe(map(res =>{
+    login(email:string, password:string){
+        return this.http.post(`${environment.apiUrl}/user/login`, {email:email, password:password}).pipe(map(res =>{
             if(res){
                const jsonString = JSON.stringify(res);
                const json = JSON.parse(jsonString);
@@ -25,8 +25,8 @@ export class AuthenticationService  {
         }));
     }
 
-    register(username:string,password:string,repassword:string,fullname:string){
-        return this.http.post(`${environment.apiUrl}/user/register`, {email:username, password:password, comfirmPassword:repassword,userName:fullname});
+    register(email:string,password:string,repassword:string,fullname:string){
+        return this.http.post(`${environment.apiUrl}/user/register`, {email:email, password:password, comfirmPassword:repassword,userName:fullname});
     }
 
 

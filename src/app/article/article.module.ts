@@ -13,6 +13,8 @@ import { TranslateModule} from '@ngx-translate/core';
 import {TypeManageComponent} from './type/type.manage.component'
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {ArticleService} from "./article.service";
+import {PublishComponent} from "./publish/publish.component";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
     imports: [
         CommonModule,
@@ -20,6 +22,7 @@ import {ArticleService} from "./article.service";
         IonicModule,
         TranslateModule,
         NgxDatatableModule,
+        CKEditorModule,
         RouterModule.forChild([
             {
                 path: '',
@@ -28,10 +31,14 @@ import {ArticleService} from "./article.service";
             {
                 path:'manage',
                 component:TypeManageComponent
+            },
+            {
+                path:'publish',
+                component:PublishComponent
             }
         ])
     ],
-    declarations: [ArticlePage,TypeManageComponent],
+    declarations: [ArticlePage,TypeManageComponent,PublishComponent],
     providers:[ArticleService]
 
 })

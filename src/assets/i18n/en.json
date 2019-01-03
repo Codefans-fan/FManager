@@ -4,16 +4,16 @@
     "title":"Login",
     "subtitle":"Hello, login with your name",
     "form":"Login Form",
-    "username":"User Name",
+    "email":"Email:",
     "password":"Password",
     "login":"Login",
     "rememberme":"Remember me",
     "forgetpassword":"Forget password ?",
     "loginbutton":"Log in",
-    "username_placeholder":"User name",
+    "email_placeholder":"Email",
     "password_placeholder":"Password",
     "error":{
-      "username":"User name is required",
+      "email":"User name is required",
       "password":" Password is required!",
       "passwordLength":"Password should contains from 6 to 20 characters"
     }
@@ -22,8 +22,8 @@
   "register":{
     "title":"Register",
     "fullname":"Full name:",
-    "username":"User name",
-    "username_placeholder":"User name",
+    "email":"Email",
+    "email_placeholder":"Email",
     "password":"Password:",
     "password_placeholder":"Password",
     "repeatpassword":"Repeat password:",
@@ -32,7 +32,7 @@
     "login":"Log in",
     "error":{
       "fullnamerequired":"Full name is required",
-      "usernamerequired":"User name is required",
+      "emailrequired":"Email is required",
       "passwordrequired":"Password is required",
       "repeatpasswordrequired":"Password confirmation is required!",
       "passwordnotmatch":"Password does not match the confirm password."
@@ -61,6 +61,10 @@
   "article":{
     "title":"Article",
     "typeManage":"Article Type Manage",
+    "publish":"Article Publish",
+    "template":{
+      "name":"Article title"
+    },
     "articletype":{
       "tablecolumn":{
         "id":"ID",
@@ -70,7 +74,11 @@
     },
     "message":{
       "success":"Success",
-      "failed":"Failed"
+      "failed":"Failed",
+      "empty":"Empty Values"
+    },
+    "button":{
+      "save":"Save"
     }
   }
 
