@@ -63,7 +63,9 @@
     "typeManage":"Article Type Manage",
     "publish":"Article Publish",
     "template":{
-      "name":"Article title"
+      "name":"Article title",
+      "description":"Article description",
+      "type":"Type"
     },
     "articletype":{
       "tablecolumn":{
@@ -78,7 +80,9 @@
       "empty":"Empty Values"
     },
     "button":{
-      "save":"Save"
+      "save":"Save",
+      "ok":"OK",
+      "cancel":"Cancel"
     }
   }
 

@@ -1,3 +1,14 @@
 :host ::ng-deep .ck-editor__editable {
   min-height: 300px;
 }
+
+:host {
+  ion-card-title {
+    border-bottom: solid 1px #4c8dff;
+
+  }
+  ion-card-subtitle {
+    text-transform: none;
+  }
+
+}

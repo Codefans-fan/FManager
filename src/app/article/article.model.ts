@@ -6,8 +6,9 @@
 export class ArticleModel{
     id:number;
     title:string;
+    contentDesc:string;
     context:string;
-
+    articleType:number;
     constructor(title?:string,context?:string){
         this.title=title?title:"";
         this.context = context?context:"";
